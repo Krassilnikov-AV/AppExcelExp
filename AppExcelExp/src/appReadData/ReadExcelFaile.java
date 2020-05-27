@@ -32,25 +32,16 @@ public class ReadExcelFaile {
             //получаем значение ячеек по номерам столбцов
             HSSFCell idCell = row.getCell(ID_COLUMN_NUMBER);
             //получаем строковое значение из ячейки
-            String id = idCell.getStringCellValue();
-            System.out.println("ID: " + id);
+            double id = idCell.getNumericCellValue();
+            // System.out.println("ID: " + id);
             HSSFCell asianCell = row.getCell(NAME_COLUMN_ASIAN);
             String asian = asianCell.getStringCellValue();
-            System.out.println("Азия: " + asian);
-            HSSFCell europa = row.getCell(NAME_COLUMN_EUROPA);
-            String phoneNumber = europa.getStringCellValue();
-            System.out.println("Европа: " + phoneNumber);
+            //   System.out.println("Азия: " + asian);
+            HSSFCell europaCell = row.getCell(NAME_COLUMN_EUROPA);
+            String europa = europaCell.getStringCellValue();
+            //    System.out.println("Европа: " + phoneNumber);
+            System.out.println("ID: " + id + "-> Азия: " + asian + "-> Европа: " + europa);
         }
-
-//выбор листа _ строки _ столбца
-// преобразование с вновь введеным методом, который определит формат считываемого знвчения
-//        String result0 = getCelltext(wb.getSheetAt(0).getRow(1).getCell(1));
-//        String result1 = getCelltext(wb.getSheetAt(0).getRow(1).getCell(3));
-//        String result2 = getCelltext(wb.getSheetAt(0).getRow(1).getCell(4));
-//        String result3 = getCelltext(wb.getSheetAt(0).getRow(1).getCell(5));
-//        String result4 = getCelltext(wb.getSheetAt(0).getRow(1).getCell(6));
-//        String result5 = getCelltext(wb.getSheetAt(0).getRow(1).getCell(2));
-//        System.out.println(result0 + "->" + result1 + "->" + result2 + "->" + result3 + "->" + result4 + "->" + result5);
     }
 
 // метод для самостоятельного определения формата считываемого значения
