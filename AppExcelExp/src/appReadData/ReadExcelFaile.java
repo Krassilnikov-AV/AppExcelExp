@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 
-public class ReadExcelFaile {
+public class ReadExcelFile {
 
     public static final int ID_COLUMN_NUMBER = 0;
     public static final int NAME_COLUMN_ASIAN = 1;
