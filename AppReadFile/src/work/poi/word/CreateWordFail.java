@@ -1,8 +1,8 @@
-
 package work.poi.word;
 
 import java.io.FileOutputStream;
 import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
+import org.apache.poi.xwpf.usermodel.Borders;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -17,6 +17,7 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTText;
  * @author Aleks
  */
 public class CreateWordFail {
+
     public static void main(String[] args) {
         try {
             // создаем модель docx документа, 
@@ -25,10 +26,10 @@ public class CreateWordFail {
             CTSectPr ctSectPr = docxModel.getDocument().getBody().addNewSectPr();
             // получаем экземпляр XWPFHeaderFooterPolicy для работы с колонтитулами
             XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(docxModel, ctSectPr);
- 
+
             // создаем верхний колонтитул Word файла
             CTP ctpHeaderModel = createHeaderModel(
-            "Верхний колонтитул - создано с помощью Apache POI на Java :)"
+                    "Верхний колонтитул - ........"
             );
             // устанавливаем сформированный верхний
             // колонтитул в модель документа Word
@@ -37,7 +38,7 @@ public class CreateWordFail {
                     XWPFHeaderFooterPolicy.DEFAULT,
                     new XWPFParagraph[]{headerParagraph}
             );
- 
+
             // создаем нижний колонтитул docx файла
             CTP ctpFooterModel = createFooterModel("СПбГУ ИДО ВИШ Расписание занятий ДОП");
             // устанавливаем сформированый нижний
@@ -47,22 +48,22 @@ public class CreateWordFail {
                     XWPFHeaderFooterPolicy.DEFAULT,
                     new XWPFParagraph[]{footerParagraph}
             );
- 
+
             // создаем обычный параграф, который будет расположен слева,
-            // будет синим курсивом со шрифтом 25 размера
+            // будет черным курсивом со шрифтом 12 размера
             XWPFParagraph bodyParagraph = docxModel.createParagraph();
-            bodyParagraph.setAlignment(ParagraphAlignment.RIGHT);
+            bodyParagraph.setAlignment(ParagraphAlignment.CENTER);
+           
             XWPFRun paragraphConfig = bodyParagraph.createRun();
             paragraphConfig.setItalic(true);
-            paragraphConfig.setFontSize(25);
+            paragraphConfig.setFontSize(12);
             // HEX цвет без решетки #
-            paragraphConfig.setColor("06357a");
-            paragraphConfig.setText(
-            "РАСПИСАНИЕ ЗАНЯТИЙ"
-                    + "по программе профессиональной переподготовки <Администрирование корпоративной ИТ инфраструктуры> "
-                    + "      Апрель 2020"
-            );
- 
+            paragraphConfig.setColor("000000");
+            paragraphConfig.setText("РАСПИСАНИЕ ЗАНЯТИЙ /n");
+            paragraphConfig.setText("по программе профессиональной переподготовки"
+                + " <Администрирование корпоративной ИТ инфраструктуры> /n Апрель 2020");
+            paragraphConfig.setText(" ");
+
             // сохраняем модель docx документа в файл
             FileOutputStream outputStream = new FileOutputStream("D:/Apache POI Word Test.docx");
             docxModel.write(outputStream);
@@ -72,23 +73,23 @@ public class CreateWordFail {
         }
         System.out.println("Успешно записан в файл");
     }
- 
+
     private static CTP createFooterModel(String footerContent) {
         // создаем футер или нижний колонтитул
         CTP ctpFooterModel = CTP.Factory.newInstance();
         CTR ctrFooterModel = ctpFooterModel.addNewR();
         CTText cttFooter = ctrFooterModel.addNewT();
- 
+
         cttFooter.setStringValue(footerContent);
         return ctpFooterModel;
     }
- 
+
     private static CTP createHeaderModel(String headerContent) {
         // создаем хедер или верхний колонтитул
         CTP ctpHeaderModel = CTP.Factory.newInstance();
         CTR ctrHeaderModel = ctpHeaderModel.addNewR();
         CTText cttHeader = ctrHeaderModel.addNewT();
- 
+
         cttHeader.setStringValue(headerContent);
         return ctpHeaderModel;
     }
