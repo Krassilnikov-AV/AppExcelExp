@@ -62,3 +62,13 @@ _XSSFWorkbook
 - XSSFWorkbook (InputStream  is  );
 - XSSFWorkbook (File         file);
 - XSSFWorkbook (String       path);
+
+**Apache POI Word — основные классы**
+
+**Document**
+
+Это маркерный интерфейс (интерфейс не содержит никаких методов), который уведомляет о том, что реализованный класс может создавать текстовый документ.
+
+**XWPFDocument**
+
+Это класс в пакете org.apache.poi.xwpf.usermodel . Он используется для создания документа MS-Word с форматом файла .docx.
