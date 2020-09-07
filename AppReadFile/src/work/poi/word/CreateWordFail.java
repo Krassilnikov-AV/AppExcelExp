@@ -12,10 +12,7 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTR;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSectPr;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTText;
 
-/**
- *
- * @author Aleks
- */
+
 public class CreateWordFail {
 
     public static void main(String[] args) {
@@ -28,9 +25,7 @@ public class CreateWordFail {
             XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(docxModel, ctSectPr);
 
             // создаем верхний колонтитул Word файла
-            CTP ctpHeaderModel = createHeaderModel(
-                    "Верхний колонтитул - ........"
-            );
+            CTP ctpHeaderModel = createHeaderModel("Верхний колонтитул - ........");
             // устанавливаем сформированный верхний
             // колонтитул в модель документа Word
             XWPFParagraph headerParagraph = new XWPFParagraph(ctpHeaderModel, docxModel);
@@ -53,7 +48,7 @@ public class CreateWordFail {
             // будет черным курсивом со шрифтом 12 размера
             XWPFParagraph bodyParagraph = docxModel.createParagraph();
             bodyParagraph.setAlignment(ParagraphAlignment.CENTER);
-           
+
             XWPFRun paragraphConfig = bodyParagraph.createRun();
             paragraphConfig.setItalic(true);
             paragraphConfig.setFontSize(12);
@@ -61,11 +56,11 @@ public class CreateWordFail {
             paragraphConfig.setColor("000000");
             paragraphConfig.setText("РАСПИСАНИЕ ЗАНЯТИЙ /n");
             paragraphConfig.setText("по программе профессиональной переподготовки"
-                + " <Администрирование корпоративной ИТ инфраструктуры> /n Апрель 2020");
+                    + " <Администрирование корпоративной ИТ инфраструктуры> /n Апрель 2020");
             paragraphConfig.setText(" ");
 
             // сохраняем модель docx документа в файл
-            FileOutputStream outputStream = new FileOutputStream("D:/Apache POI Word Test.docx");
+            FileOutputStream outputStream = new FileOutputStream("D:/Apache POI Word Raspisanie.docx");
             docxModel.write(outputStream);
             outputStream.close();
         } catch (Exception e) {
