@@ -14,10 +14,8 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/**
- *
- * @author Aleks
- */
+
+
 public final class ReadFile {
 
     private final String FILE = "PrimerRaspisania.xlsx";
