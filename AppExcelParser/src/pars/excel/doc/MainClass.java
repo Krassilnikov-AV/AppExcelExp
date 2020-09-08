@@ -8,6 +8,8 @@ public class MainClass {
     public static void main(String[] args) throws IOException {
          String fileName = "Person.xls";
   //      PersonPars.readFromExcel(fileName);    
-        PersonParsList.readFirstRow(fileName);
+//        PersonParsList.readFirstRow(fileName);
+        PersonParsListByOne pplb = new PersonParsListByOne();
+        pplb.extractExcelContentByColumnIndex(1);
     }    
 }
