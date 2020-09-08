@@ -7,6 +7,7 @@ public class MainClass {
    
     public static void main(String[] args) throws IOException {
          String fileName = "Person.xls";
-        PersonPars.readFromExcel(fileName);    
+  //      PersonPars.readFromExcel(fileName);    
+        PersonParsList.readFirstRow(fileName);
     }    
 }
