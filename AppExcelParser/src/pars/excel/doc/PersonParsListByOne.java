@@ -48,7 +48,9 @@ public class PersonParsListByOne {
                 }
             }
             ios.close();
-            System.out.println(columndata);
+            Iterator it = columndata.iterator();
+            while(it.hasNext())
+            System.out.println(it.next());
         } catch (Exception e) {
             e.printStackTrace();
         }

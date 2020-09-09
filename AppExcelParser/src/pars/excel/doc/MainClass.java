@@ -10,6 +10,6 @@ public class MainClass {
   //      PersonPars.readFromExcel(fileName);    
 //        PersonParsList.readFirstRow(fileName);
         PersonParsListByOne pplb = new PersonParsListByOne();
-        pplb.extractExcelContentByColumnIndex(1);
+        pplb.extractExcelContentByColumnIndex(0);
     }    
 }
