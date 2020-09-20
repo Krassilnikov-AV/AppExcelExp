@@ -1,4 +1,4 @@
-package ru.write.word.raspisanie;
+package ru.write.word.example;
 
 import java.io.File;
 import java.io.FileOutputStream;
